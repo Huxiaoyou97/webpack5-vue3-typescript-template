@@ -64,10 +64,10 @@ module.exports = function (env, argv) {
             {
               loader: 'sass-loader',
               options: {
-                additionalData: `
-                  @use "@/styles/variables.scss" as *;
-                  @use "@/styles/mixin.scss" as *;
-                `,
+                // additionalData: `
+                //   @use "@/styles/variables.scss" as *;
+                //   @use "@/styles/mixin.scss" as *;
+                // `,
               },
             },
           ],
@@ -79,8 +79,8 @@ module.exports = function (env, argv) {
       new CleanWebpackPlugin(),
       // css抽离
       new MiniCssExtractPlugin({
-        filename: 'css/[name].[contenthash].css',
-        chunkFilename: 'css/[name].[contenthash].css',
+        filename: 'assets/css/[name].[contenthash].css',
+        chunkFilename: 'assets/css/[name].[contenthash].css',
       }),
       // css压缩
       new CssMinimizerPlugin(),
@@ -93,8 +93,8 @@ module.exports = function (env, argv) {
     ],
     output: {
       path: resolve('dist'),
-      filename: 'js/[name].[hash].js',
-      chunkFilename: 'js/[name].[hash].js',
+      filename: 'assets/js/[name].[hash].js',
+      chunkFilename: 'assets/js/[name].[hash].js',
     },
   })
 }
