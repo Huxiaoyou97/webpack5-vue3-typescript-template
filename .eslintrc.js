@@ -3,7 +3,6 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -16,13 +15,11 @@ module.exports = {
     'airbnb-base',
     'plugin:@typescript-eslint/recommended',
     '@vue/prettier',
-    'plugin:vue/recommended',
-    'plugin:prettier/recommended',
   ],
   plugins: ['vue', '@typescript-eslint'],
   rules: {
-    indent: ['warn', 2], //缩进风格
-    'vue/require-default-prop': 'off', // 允许className做prop
+    // indet: ['error', 2],
+    semi: ['error', 'always'],
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/no-explicit-any': 'off',
@@ -31,4 +28,4 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
   },
-}
+};

@@ -83,7 +83,7 @@ const devWebpackConfig = merge(common, {
     compress: true, // 为所有服务启用gzip 压缩
     proxy: {
       '/api': {
-        target: '...',
+        target: 'http://192.168.80.40',
         // secure: true, // 如果是 https ,需要开启这个选项
         changeOrigin: true, // 是否是跨域请求
         pathRewrite: {
