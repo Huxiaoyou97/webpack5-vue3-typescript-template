@@ -1,10 +1,10 @@
-const { merge } = require('webpack-merge')
-const webpack = require('webpack')
-const { resolve } = require('./utils.js')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const common = require('./webpack.base')
-const chalk = require('chalk')
-const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const { merge } = require('webpack-merge');
+const webpack = require('webpack');
+const { resolve } = require('./utils.js');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const common = require('./webpack.base');
+const chalk = require('chalk');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 const devWebpackConfig = merge(common, {
   mode: 'development',
@@ -95,6 +95,7 @@ const devWebpackConfig = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
+      'process.env.VUE_BASE_URL': JSON.stringify('123'),
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: true,
     }),
@@ -109,7 +110,7 @@ const devWebpackConfig = merge(common, {
     name: 'scf-cache', // 路径temp_cache/scf-cache
     compression: 'gzip',
   },
-})
+});
 
 devWebpackConfig.plugins.push(
   // 进度条
@@ -128,6 +129,6 @@ devWebpackConfig.plugins.push(
     // 是否每次都清空控制台
     clearConsole: true,
   })
-)
+);
 
-module.exports = devWebpackConfig
+module.exports = devWebpackConfig;

@@ -1,8 +1,9 @@
-const { resolve, babelLoaderConf } = require('./utils.js')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const vueLoader = require('vue-loader')
-const Components = require('unplugin-vue-components/webpack')
-const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
+const { resolve, babelLoaderConf } = require('./utils.js');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const vueLoader = require('vue-loader');
+const Components = require('unplugin-vue-components/webpack');
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
 
 module.exports = {
   entry: {
@@ -87,6 +88,9 @@ module.exports = {
       favicon: resolve('public/favicon.ico'),
       inject: true,
     }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
     // element-plus 按需引入
     Components({
       resolvers: [
@@ -96,4 +100,4 @@ module.exports = {
       ],
     }),
   ],
-}
+};

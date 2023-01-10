@@ -6,12 +6,11 @@
 
 <template>
   <h1>Vue</h1>
-  <button>123</button>
   <el-button type="primary">Primary</el-button>
 </template>
 
 <script setup lang="ts">
-console.log(123);
+console.log(process.env.VUE_BASE_URL, '------p');
 </script>
 
 <style scoped lang="scss"></style>

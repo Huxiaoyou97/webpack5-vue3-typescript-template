@@ -1,16 +1,16 @@
-const { merge } = require('webpack-merge')
-const webpack = require('webpack')
-const { resolve } = require('./utils.js')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin') // 将CSS文件抽取出来配置, 防止将样式打包在 js 中文件过大和因为文件大网络请求超时的情况。
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin') // 对CSS文件进行压缩
-const TerserPlugin = require('terser-webpack-plugin')
-const common = require('./webpack.base')
+const { merge } = require('webpack-merge');
+const webpack = require('webpack');
+const { resolve } = require('./utils.js');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 将CSS文件抽取出来配置, 防止将样式打包在 js 中文件过大和因为文件大网络请求超时的情况。
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); // 对CSS文件进行压缩
+const TerserPlugin = require('terser-webpack-plugin');
+const common = require('./webpack.base');
 const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = function (env, argv) {
-  const nodeEnv = env.test ? 'test' : env.dev ? 'development' : 'production'
+  const nodeEnv = env.test ? 'test' : env.dev ? 'development' : 'production';
   const analyzerPlugins = env.analyzer
     ? [
         new BundleAnalyzerPlugin({
@@ -21,7 +21,7 @@ module.exports = function (env, argv) {
           statsFilename: resolve('./report/stats.json'),
         }),
       ]
-    : []
+    : [];
   return merge(common, {
     mode: 'production',
     optimization: {
@@ -86,6 +86,7 @@ module.exports = function (env, argv) {
       new CssMinimizerPlugin(),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(nodeEnv),
+        'process.env.VUE_BASE_URL': JSON.stringify('456'),
         __VUE_OPTIONS_API__: true,
         __VUE_PROD_DEVTOOLS__: false,
       }),
@@ -96,5 +97,5 @@ module.exports = function (env, argv) {
       filename: 'assets/js/[name].[hash].js',
       chunkFilename: 'assets/js/[name].[hash].js',
     },
-  })
-}
+  });
+};
