@@ -216,8 +216,6 @@ async function useModule(app: App) {
     const value: any = files2[i].default;
     const fname: string = (cname || '').split('.')[0];
 
-    console.log(files2, '------files2');
-
     function next(d: any) {
       // 配置参数入口
       if (fn == 'config.ts') {
@@ -275,7 +273,6 @@ async function useModule(app: App) {
           break;
         case 'views':
           if (value.cool) {
-            console.log(value, '-------cool');
             if (value.cool.route instanceof Array) {
               value.cool.route.forEach((e: any) => {
                 d[fn].push({
@@ -284,8 +281,6 @@ async function useModule(app: App) {
                 });
               });
             } else {
-              console.log(name, '-----name');
-              console.log(fname, '-----fname');
               d[fn].push({
                 ...value.cool.route,
                 // component: () => import(`../../package/modules/${name}/views/${fname}.vue`),
