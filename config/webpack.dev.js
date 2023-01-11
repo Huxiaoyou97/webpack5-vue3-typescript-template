@@ -21,6 +21,15 @@ const devWebpackConfig = merge(common, {
               sourceMap: false,
             },
           },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                // postcss-preset-env 内部集成了 autoprefixer 添加css第三方前缀
+                plugins: ['postcss-preset-env'],
+              },
+            },
+          },
         ],
       },
       {
@@ -42,14 +51,14 @@ const devWebpackConfig = merge(common, {
               },
             },
           },
-          {
-            loader: 'sass-loader',
-            options: {
-              additionalData: `
-                @use "@/styles/variables.scss" as *;
-                @use "@/styles/mixin.scss" as *;`,
-            },
-          },
+          // {
+          //   loader: 'sass-loader',
+          //   options: {
+          //     additionalData: `
+          //       @use "@/styles/variables.scss" as *;
+          //       @use "@/styles/mixin.scss" as *;`,
+          //   },
+          // },
         ],
       },
     ],

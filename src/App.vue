@@ -7,6 +7,8 @@
 <template>
   <h1>Vue</h1>
   <el-button type="primary">Primary</el-button>
+
+  <router-view />
 </template>
 
 <script setup lang="ts">

@@ -14,6 +14,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json', '.ts', '.tsx', '.mjs'],
     alias: {
       '@': resolve('src'),
+      'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
     },
   },
   module: {
@@ -94,6 +95,10 @@ module.exports = {
     }),
     // element-plus 按需引入
     AutoImport({
+      imports: ['vue', 'vue-router'],
+      eslintrc: {
+        enabled: true,
+      },
       resolvers: [
         ElementPlusResolver({
           importStyle: false,

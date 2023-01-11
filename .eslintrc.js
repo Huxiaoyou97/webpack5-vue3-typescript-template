@@ -27,5 +27,12 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
+    'class-methods-use-this': 'off',
+    'new-cap': 'off',
+    'import/prefer-default-export': 'off',
+    'import/extensions': 'off',
+    'vue/multi-word-component-names': 'off',
+    'no-restricted-syntax': 'off',
+    'import/order': 'off',
   },
 };

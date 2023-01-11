@@ -9,11 +9,13 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "node"
+      "node",
+      "@intlify/unplugin-vue-i18n/messages"
     ],
     "paths": {
       "@/*": [
