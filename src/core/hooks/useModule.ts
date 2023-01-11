@@ -97,8 +97,7 @@ async function useModule(app: App) {
 
   for (const i of files) {
     const value: any = f(i).default;
-    const [, , , name, fn, cname, fname, fname2, fname3, fname4] =
-      value.__file.split('/');
+    const [, name, fn, cname, fname, fname2, fname3, fname4] = i.split('/');
 
     if (fn === 'pages' || fn === 'views') {
       let path: any = null;
@@ -209,13 +208,15 @@ async function useModule(app: App) {
   const files2: any = {};
 
   for (const item of pagesViews) {
-    files2[item.i] = item['value'];
+    files2[item.newI] = item['value'];
   }
 
   for (const i in files2) {
-    const [, , , name, fn, cname] = i.split('/');
+    const [, name, fn, cname] = i.split('/');
     const value: any = files2[i].default;
     const fname: string = (cname || '').split('.')[0];
+
+    console.log(files2, '------files2');
 
     function next(d: any) {
       // 配置参数入口
@@ -274,6 +275,7 @@ async function useModule(app: App) {
           break;
         case 'views':
           if (value.cool) {
+            console.log(value, '-------cool');
             if (value.cool.route instanceof Array) {
               value.cool.route.forEach((e: any) => {
                 d[fn].push({
@@ -282,8 +284,11 @@ async function useModule(app: App) {
                 });
               });
             } else {
+              console.log(name, '-----name');
+              console.log(fname, '-----fname');
               d[fn].push({
                 ...value.cool.route,
+                // component: () => import(`../../package/modules/${name}/views/${fname}.vue`),
                 component: value,
               });
             }

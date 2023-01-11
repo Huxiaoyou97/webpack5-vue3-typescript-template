@@ -36,6 +36,8 @@ const routes: Array<RouteRecordRaw> = [
   },
 ];
 
+console.log(routes, '------------routes');
+
 const router = createRouter({
   history:
     routerMode === 'history' ? createWebHistory() : createWebHashHistory(),

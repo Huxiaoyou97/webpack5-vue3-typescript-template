@@ -9,6 +9,7 @@ function useRouter() {
         options = {};
       }
 
+      console.log(list, '------------list');
       // Parse route config
       list.forEach((e: any) => {
         console.log('register router');
