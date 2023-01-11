@@ -101,15 +101,15 @@ const devWebpackConfig = merge(common, {
     }),
   ],
   // 缓存
-  cache: {
-    type: 'filesystem',
-    buildDependencies: {
-      config: [__filename], // 针对构建的额外代码依赖的数组对象。webpack 将使用这些项和所有依赖项的哈希值来使文件系统缓存失效。
-    },
-    cacheDirectory: resolve('temp_cache'),
-    name: 'scf-cache', // 路径temp_cache/scf-cache
-    compression: 'gzip',
-  },
+  // cache: {
+  //   type: 'filesystem',
+  //   buildDependencies: {
+  //     config: [__filename], // 针对构建的额外代码依赖的数组对象。webpack 将使用这些项和所有依赖项的哈希值来使文件系统缓存失效。
+  //   },
+  //   cacheDirectory: resolve('temp_cache'),
+  //   name: 'scf-cache', // 路径temp_cache/scf-cache
+  //   compression: 'gzip',
+  // },
 });
 
 devWebpackConfig.plugins.push(

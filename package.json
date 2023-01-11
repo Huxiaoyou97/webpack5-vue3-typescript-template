@@ -10,7 +10,9 @@
         "eslint": "eslint ./src --fix"
     },
     "dependencies": {
-        "vue": "^3.2.31"
+        "pinia": "^2.0.28",
+        "vue": "^3.2.31",
+        "vue-router": "4.0.0"
     },
     "devDependencies": {
         "@babel/core": "^7.17.8",

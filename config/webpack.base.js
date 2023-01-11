@@ -2,6 +2,7 @@ const { resolve, babelLoaderConf } = require('./utils.js');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const vueLoader = require('vue-loader');
+const AutoImport = require('unplugin-auto-import/webpack');
 const Components = require('unplugin-vue-components/webpack');
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
 
@@ -92,6 +93,13 @@ module.exports = {
       process: 'process/browser',
     }),
     // element-plus 按需引入
+    AutoImport({
+      resolvers: [
+        ElementPlusResolver({
+          importStyle: false,
+        }),
+      ],
+    }),
     Components({
       resolvers: [
         ElementPlusResolver({
