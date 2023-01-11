@@ -6,6 +6,16 @@
 
 <template>
   <h1>{{ $t('语言') }}</h1>
+
+  <router-link to="/test">跳转test</router-link>
+
+  <img
+    style="width: 200px; height: 200px"
+    v-lazy="
+      `https://img1.baidu.com/it/u=1026360805,1567430550&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800`
+    "
+    alt=""
+  />
 </template>
 
 <script setup lang="ts"></script>

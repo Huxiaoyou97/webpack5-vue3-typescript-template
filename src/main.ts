@@ -25,6 +25,11 @@ import vueI18n from './core/i18n';
 // mitt
 import mitt from 'mitt';
 
+// 图片懒加载
+import VueLazyLoad from 'vue3-lazyload';
+import { Router } from 'vue-router';
+import bootstrap from '@/core';
+
 // 设置多语言
 const i18nFunc = vueI18n(HiCache.getCache(HiStance.LANGUAGE) || 'zh-cn');
 window.$t = i18nFunc.global.t;
@@ -35,8 +40,26 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
 
-app.provide('mitt', mitt());
+app
+  .use(pinia)
+  .use(i18nFunc)
+  .use(VueLazyLoad, {
+    error: require('./assets/images/lazyload/404.jpg'),
+    loading: require('./assets/images/lazyload/loading.svg'),
+    log: false,
+  });
 
-app.use(pinia).use(router).use(i18nFunc);
+bootstrap(app)
+  .then(() => {
+    app.provide('mitt', mitt());
 
-app.mount('#app');
+    app.use(router as Router).mount('#app');
+
+    console.log('启动成功');
+  })
+  .catch(err => {
+    console.error(`启动失败`, err);
+  });
+
+// @ts-ignore
+window.__app__ = app;
