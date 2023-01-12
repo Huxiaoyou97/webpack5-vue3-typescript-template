@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    XbNavbar: typeof import('./src/components/xb-navbar.vue')['default']
+    XbIcon: typeof import('./src/components/xb-icon/xb-icon.vue')['default']
+    XbPage: typeof import('./src/package/modules/v1/components/xb-page/xb-page.vue')['default']
   }
 }

@@ -5,17 +5,15 @@
 -->
 
 <template>
-  <div class="xb-page">
-    <slot></slot>
-  </div>
+    <div class="xb-page">
+        <slot></slot>
+    </div>
 </template>
 
-<script setup lang="ts">
-console.log('xb-page');
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 .xb-page {
-  background-color: red;
+    background-color: red;
 }
 </style>

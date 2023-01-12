@@ -5,14 +5,21 @@
 -->
 
 <template>
-    <div class="demo"></div>
+    <div class="demo">
+        {{ user.name }} --- {{ count }}
+
+        {{ appStore.appName }}
+    </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue';
-import useApp from '@/core/hooks/useApp';
+// import { ref, reactive } from 'vue';
+const { t, notice, appStore } = useApp();
 
-const { t } = useApp();
+const count = ref(1);
+const user = reactive({
+    name: '胡小右',
+});
 </script>
 
 <style scoped lang="scss"></style>

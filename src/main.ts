@@ -31,6 +31,9 @@ import vueI18n from './core/i18n';
 // mitt
 import mitt from 'mitt';
 
+// svg
+import '@/core/utils/svg';
+
 // 图片懒加载
 import VueLazyLoad from 'vue3-lazyload';
 import { Router } from 'vue-router';

@@ -102,14 +102,46 @@ module.exports = {
                 /\.vue\?vue/, // .vue
                 /\.md$/, // .md
             ],
-            dirs: ['../src/components/**'],
+            imports: [
+                // presets
+                'vue',
+                'vue-router',
+                // custom
+                {
+                    '@vueuse/core': [
+                        // named imports
+                        'useMouse', // import { useMouse } from '@vueuse/core',
+                        // alias
+                        ['useFetch', 'useMyFetch'], // import { useFetch as useMyFetch } from '@vueuse/core',
+                    ],
+                    axios: [
+                        // default imports
+                        ['default', 'axios'], // import { default as axios } from 'axios',
+                    ],
+                },
+            ],
+            dirs: ['src/core/hooks/'],
+            vueTemplate: false,
+            defaultExportByFilename: false,
             resolvers: [
                 ElementPlusResolver({
                     importStyle: false,
                 }),
             ],
+            eslintrc: {
+                enabled: true,
+                filepath: './.eslintrc-auto-import.json',
+                globalsPropValue: true,
+            },
         }),
         Components({
+            dirs: ['src/components/', 'src/package/modules/**/components/'],
+            // 配置需要将哪些后缀类型的文件进行自动按需引入，'vue'为默认值
+            extensions: ['vue'],
+            // 生成components.d.ts
+            dts: true,
+            // 遍历子目录
+            deep: true,
             resolvers: [
                 ElementPlusResolver({
                     importStyle: false,
