@@ -1,11 +1,11 @@
 <!--
  * @author 胡小右
- * @date 2023-01-11 21:46:48
- * @desc test
+ * @date 2023-01-11 22:41:53
+ * @desc
 -->
 
 <template>
-    <div class="test">v2 test page</div>
+  <div class="navbar"></div>
 </template>
 
 <script lang="ts" setup>
@@ -16,13 +16,3 @@ const { t } = useApp();
 </script>
 
 <style scoped lang="scss"></style>
-
-<script lang="ts">
-export default {
-    app: {
-        route: {
-            path: '/test',
-        },
-    },
-};
-</script>

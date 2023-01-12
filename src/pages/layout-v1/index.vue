@@ -5,8 +5,8 @@
 -->
 
 <template>
-  <h1>Layout</h1>
-  <router-view />
+    <h1>Layout</h1>
+    <router-view />
 </template>
 
 <script setup lang="ts"></script>

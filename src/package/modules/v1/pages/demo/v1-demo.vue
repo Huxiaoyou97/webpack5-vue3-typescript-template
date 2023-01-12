@@ -1,13 +1,11 @@
 <!--
  * @author 胡小右
- * @date 2023-01-11 21:46:32
- * @desc test
+ * @date 2023-01-12 13:13:57
+ * @desc demo
 -->
 
 <template>
-    <xb-page>
-        <div class="test">v1 test page</div>
-    </xb-page>
+    <div class="demo"></div>
 </template>
 
 <script lang="ts" setup>
@@ -23,7 +21,7 @@ const { t } = useApp();
 export default {
     app: {
         route: {
-            path: '/test',
+            path: '/demo',
         },
     },
 };

@@ -8,45 +8,41 @@ import { inject } from 'vue';
 import useAppStore from '@/store/useAppStore';
 
 export default function useApp() {
-  const route = useRoute();
-  const router = useRouter();
-  const { locale, t } = useI18n();
-  const mitt: Emitter<any> = inject<any>('mitt');
+    const route = useRoute();
+    const router = useRouter();
+    const { locale, t } = useI18n();
+    const mitt: Emitter<any> = inject<any>('mitt');
 
-  const appStore = useAppStore();
+    const appStore = useAppStore();
 
-  return {
-    route,
-    router,
-    locale,
-    t,
-    mitt,
+    return {
+        route,
+        router,
+        locale,
+        t,
+        mitt,
 
-    appStore,
+        appStore,
 
-    notice(
-      message: any,
-      type: 'success' | 'warning' | 'info' | 'error' = 'success',
-      title = ''
-    ) {
-      let data: any = {
-        message,
-        type,
-      };
-      if (!title) {
-        data = {
-          ...data,
-          duration: 2000,
-        };
-      } else {
-        data = {
-          title,
-          ...data,
-          duration: 2000,
-        };
-      }
+        notice(message: any, type: 'success' | 'warning' | 'info' | 'error' = 'success', title = '') {
+            let data: any = {
+                message,
+                type,
+            };
+            if (!title) {
+                data = {
+                    ...data,
+                    duration: 2000,
+                };
+            } else {
+                data = {
+                    title,
+                    ...data,
+                    duration: 2000,
+                };
+            }
 
-      ElNotification(data);
-    },
-  };
+            ElNotification(data);
+        },
+    };
 }

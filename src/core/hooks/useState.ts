@@ -6,14 +6,12 @@
 
 import { Ref, UnwrapRef, ref } from 'vue';
 
-export function useState<T>(
-  initial: T
-): [Ref<UnwrapRef<T>>, (value: T) => void] {
-  const state = ref(initial);
+export function useState<T>(initial: T): [Ref<UnwrapRef<T>>, (value: T) => void] {
+    const state = ref(initial);
 
-  const updater = (newValue: T): void => {
-    state.value = newValue as UnwrapRef<T>;
-  };
+    const updater = (newValue: T): void => {
+        state.value = newValue as UnwrapRef<T>;
+    };
 
-  return [state, updater];
+    return [state, updater];
 }

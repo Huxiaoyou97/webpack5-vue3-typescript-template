@@ -3,31 +3,31 @@ import { HRouter } from '@/core/types';
 import { Router } from 'vue-router';
 
 function useRouter() {
-  (router as HRouter).$plugin = {
-    addViews: (list: Array<any>, options: any) => {
-      if (!options) {
-        options = {};
-      }
+    (router as HRouter).$plugin = {
+        addViews: (list: Array<any>, options: any) => {
+            if (!options) {
+                options = {};
+            }
 
-      // Parse route config
-      list.forEach((e: any) => {
-        (router as Router).addRoute('index', e);
-      });
-    },
-  };
+            // Parse route config
+            list.forEach((e: any) => {
+                (router as Router).addRoute('index', e);
+            });
+        },
+    };
 
-  let lock = false;
+    let lock = false;
 
-  (router as Router).onError((err: any) => {
-    if (!lock) {
-      lock = true;
-      console.error(err);
+    (router as Router).onError((err: any) => {
+        if (!lock) {
+            lock = true;
+            console.error(err);
 
-      setTimeout(() => {
-        lock = false;
-      }, 0);
-    }
-  });
+            setTimeout(() => {
+                lock = false;
+            }, 0);
+        }
+    });
 }
 
 export default useRouter;

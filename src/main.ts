@@ -9,6 +9,12 @@ import './assets/css/tailwind.css';
 
 // element-plus
 import 'element-plus/dist/index.css';
+/**
+ * 方便测试 此处只是方便调试多主题 真正的主题变更在App.vue中 核心文件在theme 借助css变量的方式来实现element的多主题
+ * 这样做性能更快 也更方便 并且在开发环境下启动项目速度很快
+ */
+// import './styles/reset.scss';
+// import './styles/elementPlus.scss';
 
 // element-plus icon
 import * as ElementPlusIconsVue from '@element-plus/icons-vue';
@@ -29,6 +35,7 @@ import mitt from 'mitt';
 import VueLazyLoad from 'vue3-lazyload';
 import { Router } from 'vue-router';
 import bootstrap from '@/core';
+import logger from '@/core/utils/logger';
 
 // 设置多语言
 const i18nFunc = vueI18n(HiCache.getCache(HiStance.LANGUAGE) || 'zh-cn');
@@ -37,29 +44,28 @@ window.$t = i18nFunc.global.t;
 const app = createApp(App);
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-  app.component(key, component);
+    app.component(key, component);
 }
 
-app
-  .use(pinia)
-  .use(i18nFunc)
-  .use(VueLazyLoad, {
-    error: require('./assets/images/lazyload/404.jpg'),
-    loading: require('./assets/images/lazyload/loading.svg'),
-    log: false,
-  });
+app.use(pinia)
+    .use(i18nFunc)
+    .use(VueLazyLoad, {
+        error: require('./assets/images/lazyload/404.jpg'),
+        loading: require('./assets/images/lazyload/loading.svg'),
+        log: false,
+    });
 
 bootstrap(app)
-  .then(() => {
-    app.provide('mitt', mitt());
+    .then(() => {
+        app.provide('mitt', mitt());
 
-    app.use(router as Router).mount('#app');
+        app.use(router as Router).mount('#app');
 
-    console.log('启动成功');
-  })
-  .catch(err => {
-    console.error(`启动失败`, err);
-  });
+        logger.success('App start success...');
+    })
+    .catch(err => {
+        logger.error(`start error: ${err}`);
+    });
 
 // @ts-ignore
 window.__app__ = app;

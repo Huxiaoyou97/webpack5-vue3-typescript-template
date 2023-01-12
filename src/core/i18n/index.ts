@@ -5,15 +5,15 @@ import en from './locale/en.json';
 import pt from './locale/pt.json';
 
 export default (i18n): any => {
-  return createI18n({
-    legacy: false,
-    locale: i18n || 'en',
-    fallbackLocale: 'en',
-    globalInjection: true,
-    messages: {
-      'zh-cn': zhCn,
-      en,
-      pt,
-    },
-  });
+    return createI18n({
+        legacy: false,
+        locale: i18n || 'en',
+        fallbackLocale: 'en',
+        globalInjection: true,
+        messages: {
+            'zh-cn': zhCn,
+            en,
+            pt,
+        },
+    });
 };
