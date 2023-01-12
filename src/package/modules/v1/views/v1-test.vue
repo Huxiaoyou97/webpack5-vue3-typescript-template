@@ -7,6 +7,8 @@
 <template>
     <xb-page>
         <div class="test">v1 test page</div>
+
+        <router-link to="/demo">跳转demo</router-link>
     </xb-page>
 </template>
 

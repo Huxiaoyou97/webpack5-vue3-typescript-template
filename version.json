@@ -7,5 +7,11 @@
             "v2"
         ]
     },
+    "/demo": {
+        "v1-demo.vue": [
+            "v1",
+            "v2"
+        ]
+    },
     "inherit": true
 }

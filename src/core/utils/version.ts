@@ -24,6 +24,6 @@ function getCookie(cookieName: string) {
 }
 
 // 获取版本  默认base
-const version = getCookie('pc_theme') || 'v1';
+const version = getCookie('pc_theme') || 'v2';
 
 export default version;
