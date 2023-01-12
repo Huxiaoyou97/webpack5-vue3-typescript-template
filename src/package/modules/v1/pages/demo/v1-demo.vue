@@ -5,21 +5,16 @@
 -->
 
 <template>
-    <div class="demo">
-        {{ user.name }} --- {{ count }}
+    <div class="demo">demo --- {{ count }}</div>
 
-        {{ appStore.appName }}
-    </div>
+    <el-button @click="setCount(++count)">click</el-button>
 </template>
 
 <script lang="ts" setup>
-// import { ref, reactive } from 'vue';
-const { t, notice, appStore } = useApp();
+import { ref, reactive } from 'vue';
 
-const count = ref(1);
-const user = reactive({
-    name: '胡小右',
-});
+const { t } = useApp();
+const [count, setCount] = useState(0);
 </script>
 
 <style scoped lang="scss"></style>

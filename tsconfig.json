@@ -14,7 +14,8 @@
         "types": [
             "webpack-env",
             "node",
-            "@intlify/unplugin-vue-i18n/messages"
+            "vue",
+            "@intlify/unplugin-vue-i18n/messages",
         ],
         "baseUrl": ".",
         "paths": {
@@ -36,8 +37,6 @@
         "src/**/*.ts",
         "src/**/*.tsx",
         "src/**/*.vue",
-        "tests/**/*.ts",
-        "tests/**/*.tsx",
         "auto-imports.d.ts",
         "components.d.ts"
     ],

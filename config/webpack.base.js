@@ -102,24 +102,6 @@ module.exports = {
                 /\.vue\?vue/, // .vue
                 /\.md$/, // .md
             ],
-            imports: [
-                // presets
-                'vue',
-                'vue-router',
-                // custom
-                {
-                    '@vueuse/core': [
-                        // named imports
-                        'useMouse', // import { useMouse } from '@vueuse/core',
-                        // alias
-                        ['useFetch', 'useMyFetch'], // import { useFetch as useMyFetch } from '@vueuse/core',
-                    ],
-                    axios: [
-                        // default imports
-                        ['default', 'axios'], // import { default as axios } from 'axios',
-                    ],
-                },
-            ],
             dirs: ['src/core/hooks/'],
             vueTemplate: false,
             defaultExportByFilename: false,
