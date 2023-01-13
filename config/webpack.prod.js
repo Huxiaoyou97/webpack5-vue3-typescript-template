@@ -5,8 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 将CSS文件
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); // 对CSS文件进行压缩
 const TerserPlugin = require('terser-webpack-plugin');
 const common = require('./webpack.base');
-const BundleAnalyzerPlugin =
-    require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = function (env, argv) {

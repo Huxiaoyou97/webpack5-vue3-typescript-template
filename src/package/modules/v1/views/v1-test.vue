@@ -13,9 +13,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue';
-import useApp from '@/core/hooks/useApp';
-
 const { t } = useApp();
 </script>
 

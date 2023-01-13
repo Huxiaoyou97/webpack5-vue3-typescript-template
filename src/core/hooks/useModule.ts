@@ -215,7 +215,7 @@ async function useModule(app: App) {
         const [, name, fn, cname] = i.split('/');
         const value: any = files2[i].default;
         const fname: string = (cname || '').split('.')[0];
-
+        console.log(name, '-----name');
         function next(d: any) {
             // 配置参数入口
             if (fn == 'config.ts') {

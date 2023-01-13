@@ -16,14 +16,19 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeUnmount } from 'vue';
-
 const { t } = useApp();
 const [count, setCount] = useState(0);
 
 const [userinfo, setUserinfo] = useState({
     username: '张三',
 });
+
+function editUsername(name: string) {
+    setUserinfo({
+        ...userinfo,
+        username: name,
+    });
+}
 
 // 验证码倒计时函数案例
 let timerInterval: NodeJS.Timer | null = null;
@@ -32,7 +37,6 @@ const [timerText, setTimerText] = useState('获取验证码');
 const [timerDisabled, setTimerDisabled] = useState(false);
 
 function countdown() {
-    console.log('执行 countdown');
     if (timer.value > 1) {
         setTimer(timer.value - 1);
         setTimerText(`${timer.value}秒后重新获取`);
@@ -59,13 +63,6 @@ onBeforeUnmount(() => {
     setTimerDisabled(false);
     clearInterval(timerInterval);
 });
-
-function editUsername(name: string) {
-    setUserinfo({
-        ...userinfo,
-        username: name,
-    });
-}
 </script>
 
 <style scoped lang="scss"></style>
