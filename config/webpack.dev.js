@@ -132,7 +132,7 @@ devWebpackConfig.plugins.push(
         clear: false,                  // 默认true，完成时清除栏的选项
         renderThrottle: "",            // 默认16，更新之间的最短时间（以毫秒为单位）
         callback() {                   // 进度条完成时调用的可选函数
-            console.log(chalk.red.bold("start success!"))
+            console.log(chalk.green.bold("start success!"))
         }
     }),
     // 错误提示
