@@ -52,7 +52,7 @@ module.exports = {
                     },
                 },
                 generator: {
-                    filename: 'images/[base]',
+                    filename: 'assets/images/[base]',
                 },
                 exclude: [resolve('src/assets/svg')],
             },
