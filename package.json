@@ -11,6 +11,7 @@
         "eslint": "eslint ./src --fix"
     },
     "dependencies": {
+        "@vueuse/core": "^9.10.0",
         "axios": "^1.2.2",
         "mitt": "^3.0.0",
         "pinia": "^2.0.28",
