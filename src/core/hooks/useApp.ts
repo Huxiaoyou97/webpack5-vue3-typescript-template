@@ -2,7 +2,8 @@ import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { ElNotification } from 'element-plus';
 import { Emitter } from 'mitt';
-import { inject } from 'vue';
+import { inject, UnwrapRef } from 'vue';
+import { $ref, RefValue } from 'vue/macros';
 
 // 全局状态管理
 import useAppStore from '@/store/useAppStore';
@@ -14,6 +15,16 @@ export default function useApp() {
     const mitt: Emitter<any> = inject<any>('mitt');
 
     const appStore = useAppStore();
+
+    // function useState2<T>(initial: T): [RefValue<UnwrapRef<T>>, (value: T) => void] {
+    //     let state = $ref(initial);
+    //
+    //     const updater = (newValue: T): void => {
+    //         state = newValue as RefValue<UnwrapRef<T>>;
+    //     };
+    //
+    //     return [state, updater];
+    // }
 
     return {
         route,

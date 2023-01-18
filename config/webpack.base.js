@@ -26,6 +26,9 @@ module.exports = {
                 use: [
                     {
                         loader: 'vue-loader',
+                        options: {
+                            reactivityTransform: true,
+                        },
                     },
                 ],
                 include: /(src)/,
@@ -85,6 +88,7 @@ module.exports = {
     plugins: [
         // vue-loader插件
         new vueLoader.VueLoaderPlugin(),
+        require('unplugin-vue-define-options/webpack')(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: resolve('public/index.html'),

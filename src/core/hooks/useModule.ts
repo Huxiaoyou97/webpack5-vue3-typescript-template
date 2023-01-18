@@ -99,6 +99,7 @@ async function useModule(app: App) {
         const value: any = f(i).default;
         const [, name, fn, cname, fname, fname2, fname3, fname4] = i.split('/');
 
+        console.log(value, '---------value');
         if (fn === 'pages' || fn === 'views') {
             let path: any = null;
             if (value.app) {

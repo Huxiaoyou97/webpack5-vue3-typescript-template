@@ -5,9 +5,9 @@
 -->
 
 <template>
-    <div class="demo">demo --- {{ count }} --- {{ userinfo.username }}</div>
+    <div class="demo">demo --- {{ counter }} --- {{ userinfo?.username }} --- {{ userinfo?.age }}</div>
 
-    <el-button @click="setCount(++count)">数字+1</el-button>
+    <!--    <el-button @click="setCount(++count)">数字+1</el-button>-->
     <el-button @click="editUsername('李四')">修改名称</el-button>
 
     <el-button @click="getCode" :disabled="timerDisabled">{{ timerText }}</el-button>
@@ -16,16 +16,25 @@
 </template>
 
 <script lang="ts" setup>
-const { t } = useApp();
-const [count, setCount] = useState(0);
+import { $ref } from 'vue/macros';
 
-const [userinfo, setUserinfo] = useState({
+const counter = $ref(7);
+
+const { t } = useApp();
+
+interface UserInfo {
+    username?: string;
+    age: number;
+}
+
+const [userinfo, setUserinfo] = useState<UserInfo>({
     username: '张三',
+    age: 18,
 });
 
 function editUsername(name: string) {
     setUserinfo({
-        ...userinfo,
+        ...userinfo.value,
         username: name,
     });
 }

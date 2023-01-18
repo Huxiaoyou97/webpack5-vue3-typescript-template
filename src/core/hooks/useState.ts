@@ -4,7 +4,7 @@
  * @desc React类似Hook封装
  */
 
-import { Ref, UnwrapRef, ref } from 'vue';
+import { Ref, UnwrapRef, ref, toRefs } from 'vue';
 
 export function useState<T>(initial: T): [Ref<UnwrapRef<T>>, (value: T) => void] {
     const state = ref(initial);

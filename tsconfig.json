@@ -16,6 +16,7 @@
             "node",
             "vue",
             "@intlify/unplugin-vue-i18n/messages",
+            "vue/ref-macros"
         ],
         "baseUrl": ".",
         "paths": {

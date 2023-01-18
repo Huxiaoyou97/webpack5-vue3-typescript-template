@@ -18,6 +18,13 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
+    globals: {
+        $ref: 'readonly',
+        $computed: 'readonly',
+        $shallowRef: 'readonly',
+        $customRef: 'readonly',
+        $toRef: 'readonly',
+    },
     extends: ['plugin:vue/vue3-essential', 'airbnb-base', 'plugin:@typescript-eslint/recommended', '@vue/prettier'],
     plugins: ['vue', '@typescript-eslint'],
     rules: {
@@ -62,6 +69,10 @@ module.exports = {
         'import/no-duplicates': 'off',
         'import/first': 'off',
         '@typescript-eslint/no-unused-vars': 'off', // 未使用的变量警告
+        'prefer-const': 'off',
+        'no-multi-assign': 'off',
+        'no-continue': 'off',
+        'no-bitwise': 'off',
         // 设置单行最大长度
         'prettier/prettier': [
             'error',
