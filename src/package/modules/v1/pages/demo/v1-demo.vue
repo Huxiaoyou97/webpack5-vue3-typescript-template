@@ -7,7 +7,7 @@
 <template>
     <div class="demo">demo --- {{ counter }} --- {{ userinfo?.username }} --- {{ userinfo?.age }}</div>
 
-    <!--    <el-button @click="setCount(++count)">数字+1</el-button>-->
+    <el-button @click="setCounter(++counter)">数字+1</el-button>
     <el-button @click="editUsername('李四')">修改名称</el-button>
 
     <el-button @click="getCode" :disabled="timerDisabled">{{ timerText }}</el-button>
@@ -16,9 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { $ref } from 'vue/macros';
-
-const counter = $ref(7);
+const [counter, setCounter] = useState(0);
 
 const { t } = useApp();
 
