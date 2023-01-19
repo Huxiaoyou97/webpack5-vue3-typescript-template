@@ -7,6 +7,8 @@ import { inject } from 'vue';
 // 全局状态管理
 import useAppStore from '@/store/useAppStore';
 
+import { gp } from '@/core/utils/message';
+
 export default function useApp() {
     const route = useRoute();
     const router = useRouter();
@@ -23,6 +25,16 @@ export default function useApp() {
         mitt,
 
         appStore,
+
+        $baseNotify: gp.$baseNotify,
+
+        $baseAlert: gp.$baseAlert,
+
+        $baseMessage: gp.$baseMessage,
+
+        $baseConfirm: gp.$baseConfirm,
+
+        $basePrompt: gp.$basePrompt,
 
         notice(message: any, type: 'success' | 'warning' | 'info' | 'error' = 'success', title = '') {
             let data: any = {

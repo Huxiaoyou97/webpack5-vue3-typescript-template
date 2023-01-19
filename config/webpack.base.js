@@ -107,7 +107,7 @@ module.exports = {
                 /\.md$/, // .md
             ],
             imports: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
-            dirs: ['src/core/hooks/'],
+            dirs: ['src/core/hooks/', 'src/core/api/'],
             vueTemplate: false,
             defaultExportByFilename: false,
             resolvers: [

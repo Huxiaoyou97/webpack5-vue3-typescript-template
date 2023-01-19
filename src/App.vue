@@ -18,11 +18,12 @@ import zhCN from 'element-plus/lib/locale/lang/zh-cn';
 import En from 'element-plus/lib/locale/lang/en';
 import Pt from 'element-plus/lib/locale/lang/pt';
 import { colorMix } from '@/theme/tool';
-import useApp from '@/core/hooks/useApp';
 import { computed, ref } from 'vue';
-import logger from '@/core/utils/logger';
+import { SystemDataType } from '@/store/types/app';
 
-const { locale, t } = useApp();
+const { locale, t, appStore } = useApp();
+
+// ==================================== 语言 ==================================== //
 const providerLocal = computed({
     get() {
         return chanLocal();
@@ -43,12 +44,53 @@ function chanLocal() {
     }
 }
 
-// 根据版本初始化对应的主题色
+// ==================================== 初始化接口 标题 ico ==================================== //
+appStore.handleGetSystemData().then(() => {
+    const systemData = computed(() => appStore.getSystemData);
+
+    // 修改icon
+    function modifyIco(data: SystemDataType) {
+        let link = (document.querySelector("link[rel*='icon']") || document.createElement('link')) as HTMLLinkElement;
+        link.rel = 'shortcut icon';
+        link.type = 'image/x-icon';
+        link.href = data.ico;
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
+
+    // 修改title
+    function modifyTitle(data: SystemDataType) {
+        if (data) {
+            document.title = data.seo_title ? data.seo_title : data.sitename;
+        }
+    }
+
+    modifyIco(systemData.value);
+    modifyTitle(systemData.value);
+});
+
+// ==================================== 初始化主题 ==================================== //
 const themeObj = ref<any>({});
 
 function installTheme() {
-    const v = version ?? 'base';
+    const v = version ?? 'v3';
+
     themeObj.value = theme[v];
+
+    // 获取色阶
+    function getsTheColorScale() {
+        const colorList = ['primary', 'success', 'warning', 'danger', 'error', 'info'];
+        const prefix = '--el-color-';
+        colorList.map(colorItem => {
+            for (let i = 1; i < 10; i += 1) {
+                if (i === 2) {
+                    // todo 深色变量生成未完成 以基本色设置
+                    themeObj.value[`${prefix}${colorItem}-dark-${2}`] = colorMix(themeObj.value[`${prefix}black`], themeObj.value[`${prefix}${colorItem}`], 1);
+                } else {
+                    themeObj.value[`${prefix}${colorItem}-light-${10 - i}`] = colorMix(themeObj.value[`${prefix}white`], themeObj.value[`${prefix}${colorItem}`], i * 0.1);
+                }
+            }
+        });
+    }
 
     getsTheColorScale();
 
@@ -60,22 +102,6 @@ function installTheme() {
 
 // 需要动态颜色的函数
 installTheme();
-
-// 获取色阶
-function getsTheColorScale() {
-    const colorList = ['primary', 'success', 'warning', 'danger', 'error', 'info'];
-    const prefix = '--el-color-';
-    colorList.map(colorItem => {
-        for (let i = 1; i < 10; i += 1) {
-            if (i === 2) {
-                // todo 深色变量生成未完成 以基本色设置
-                themeObj.value[`${prefix}${colorItem}-dark-${2}`] = colorMix(themeObj.value[`${prefix}black`], themeObj.value[`${prefix}${colorItem}`], 1);
-            } else {
-                themeObj.value[`${prefix}${colorItem}-light-${10 - i}`] = colorMix(themeObj.value[`${prefix}white`], themeObj.value[`${prefix}${colorItem}`], i * 0.1);
-            }
-        }
-    });
-}
 </script>
 
 <style lang="scss"></style>

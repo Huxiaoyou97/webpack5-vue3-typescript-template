@@ -93,11 +93,13 @@ const devWebpackConfig = merge(common, {
         proxy: {
             '/api': {
                 target: 'http://192.168.80.40',
-                // secure: true, // 如果是 https ,需要开启这个选项
+                // target: 'https://i1001.xb55.net',
+                secure: true, // 如果是 https ,需要开启这个选项
+                ws: true, // 是否启用websockets
                 changeOrigin: true, // 是否是跨域请求
-                pathRewrite: {
-                    '^/api': '',
-                },
+                // pathRewrite: {
+                //     '^/api': '',
+                // },
             },
         },
     },

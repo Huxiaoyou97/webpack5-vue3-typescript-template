@@ -5,7 +5,7 @@
 -->
 
 <template>
-    <h1>Layout V1</h1>
+    <h1>Layout V2</h1>
     <router-view />
 </template>
 

@@ -73,6 +73,9 @@ module.exports = {
         'no-multi-assign': 'off',
         'no-continue': 'off',
         'no-bitwise': 'off',
+        camelcase: 'off',
+        'no-async-promise-executor': 'off',
+        'no-await-in-loop': 'off',
         // 设置单行最大长度
         'prettier/prettier': [
             'error',

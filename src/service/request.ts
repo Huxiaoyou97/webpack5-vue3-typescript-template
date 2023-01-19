@@ -174,52 +174,52 @@ instance.interceptors.response.use(
         if (err.response) {
             switch (err.response.status) {
                 case 400:
-                    err.message = window.$t('components.text161');
+                    err.message = window.$t('请求错误');
                     break;
                 case 401:
                     // 跳转到登录页
                     // await userStore.FedLogOut();
                     // Message.error('未授权，请重新登录')
-                    err.message = window.$t('components.text162');
+                    err.message = window.$t('请求错误');
                     await (router as Router).replace('/');
                     break;
                 case 403:
                     // 跳转到登录页
                     // await userStore.FedLogOut();
                     // Message.error('拒绝访问')
-                    err.message = window.$t('components.text163');
+                    err.message = window.$t('请求错误');
                     await (router as Router).replace('/');
                     break;
                 case 404:
-                    err.message = window.$t('components.text164');
+                    err.message = window.$t('请求错误');
                     break;
                 case 405:
-                    err.message = window.$t('components.text165');
+                    err.message = window.$t('请求错误');
                     break;
                 case 408:
-                    err.message = window.$t('components.text166');
+                    err.message = window.$t('请求错误');
                     break;
                 case 500:
                     // Message.error('服务器端异常')
-                    err.message = window.$t('components.text167');
+                    err.message = window.$t('请求错误');
                     break;
                 case 501:
-                    err.message = window.$t('components.text168');
+                    err.message = window.$t('请求错误');
                     break;
                 case 502:
-                    err.message = window.$t('components.text169');
+                    err.message = window.$t('请求错误');
                     break;
                 case 503:
-                    err.message = window.$t('components.text170');
+                    err.message = window.$t('请求错误');
                     break;
                 case 504:
-                    err.message = window.$t('components.text171');
+                    err.message = window.$t('请求错误');
                     break;
                 case 505:
-                    err.message = window.$t('components.text172');
+                    err.message = window.$t('请求错误');
                     break;
                 default:
-                    err.message = window.$t('components.text173', {
+                    err.message = window.$t('请求错误', {
                         value: err.response.status,
                     });
             }

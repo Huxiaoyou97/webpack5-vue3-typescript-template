@@ -1,24 +1,23 @@
 <!--
  * @author 胡小右
- * @date 2023-01-12 13:13:57
- * @desc demo
+ * @date 2023-01-19 18:22:44
+ * @desc useState的使用demo
 -->
 
 <template>
-    <div class="demo">demo --- {{ counter }} --- {{ userinfo?.username }} --- {{ userinfo?.age }}</div>
+    <div class="example-useState">
+        <el-button @click="setCounter(++counter)">点击+1: {{ counter }}</el-button>
 
-    <el-button @click="setCounter(++counter)">数字+1</el-button>
-    <el-button @click="editUsername('李四')">修改名称</el-button>
+        <el-button :disabled="timerDisabled" @click="getCode">{{ timerText }}</el-button>
 
-    <el-button @click="getCode" :disabled="timerDisabled">{{ timerText }}</el-button>
-
-    <router-link to="/test">跳转test</router-link>
+        <div>{{ userinfo }} <el-button @click="editUsername('李四')">修改名称为 李四</el-button></div>
+    </div>
 </template>
 
 <script lang="ts" setup>
 const [counter, setCounter] = useState(0);
 
-const { t } = useApp();
+const { t, appStore } = useApp();
 
 interface UserInfo {
     username?: string;
@@ -78,7 +77,7 @@ onBeforeUnmount(() => {
 export default {
     app: {
         route: {
-            path: '/demo',
+            path: '/example-useState',
         },
     },
 };
