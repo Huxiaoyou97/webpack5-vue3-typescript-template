@@ -39,12 +39,12 @@ const useAppStore = defineStore('app', {
                             }
                         }
                     } else {
-                        // HiCache.setCache<any>(HiStance.LANGUAGE, data[0].value);
-                        // resolve(code);
+                        HiCache.setCache<any>(HiStance.LANGUAGE, data[0].value);
+                        resolve(code);
 
                         // TODO 临时修改
-                        HiCache.setCache<any>(HiStance.LANGUAGE, 'zh-cn');
-                        resolve(code);
+                        // HiCache.setCache<any>(HiStance.LANGUAGE, 'zh-cn');
+                        // resolve(code);
                     }
                 } else {
                     reject();

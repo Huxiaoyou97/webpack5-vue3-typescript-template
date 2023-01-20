@@ -5,7 +5,7 @@
 -->
 
 <template>
-    <h1>V2版本的Home {{ $t('语言') }}</h1>
+    <h1>V2版本的Home 当前语言: {{ $t('当前语言') }}</h1>
 
     <router-link to="/test">跳转test</router-link>
 
