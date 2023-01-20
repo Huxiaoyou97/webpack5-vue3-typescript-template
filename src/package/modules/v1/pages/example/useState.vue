@@ -72,13 +72,3 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped lang="scss"></style>
-
-<script lang="ts">
-export default {
-    app: {
-        route: {
-            path: '/example-useState',
-        },
-    },
-};
-</script>

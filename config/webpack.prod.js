@@ -31,7 +31,7 @@ module.exports = function (env, argv) {
                 minSize: 20000,
                 // 表示的是大于多少字节的包需要进行二次拆分，拆分为不小于minSize的包
                 // 多数情况下，如果设置maxSize的值的时候，minSize和maxSize的值一般是一致的
-                maxSize: 20000,
+                maxSize: 200000,
                 // 某一个包引入了多少次就需要被抽离出来
                 minChunks: 1,
                 // cacheGroups的含义是 所有的模块输出，会存放在缓存中，最后一起执行对应的操作

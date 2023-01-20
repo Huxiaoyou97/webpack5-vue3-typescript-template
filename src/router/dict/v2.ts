@@ -7,7 +7,7 @@ const v2Pages = [
     {
         path: '/example-useState',
         name: 'exampleUseState',
-        component: () => import(/* webpackChunkName: "example-message" */ '@modules/v1/pages/example/useState.vue'),
+        component: () => import(/* webpackChunkName: "example-useState" */ '@modules/v1/pages/example/useState.vue'),
     },
 ];
 
