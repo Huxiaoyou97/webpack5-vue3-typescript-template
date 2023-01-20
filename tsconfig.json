@@ -23,7 +23,7 @@
             "@/*": [
                 "./src/*"
             ],
-            "@component/*": [
+            "@modules/*": [
                 "./src/package/modules/*"
             ]
         },

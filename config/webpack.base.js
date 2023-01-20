@@ -14,7 +14,7 @@ module.exports = {
         extensions: ['.js', '.vue', '.json', '.ts', '.tsx', '.mjs'],
         alias: {
             '@': resolve('src'),
-            '@component': resolve('src/package/modules'),
+            '@modules': resolve('src/package/modules'),
             'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
         },
     },
