@@ -30,6 +30,7 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => homeCompMap[version],
                 // redirect: "/index"
             },
+            ...require(`./dict/${version}`)[`${version}Views`],
             // {
             //     path: '/test',
             //     name: 'test',
@@ -42,6 +43,7 @@ const routes: Array<RouteRecordRaw> = [
         name: 'index2',
         redirect: '/',
     },
+    ...require(`./dict/${version}`)[`${version}Pages`],
 ];
 
 const router = createRouter({

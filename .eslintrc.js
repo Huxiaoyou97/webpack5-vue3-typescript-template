@@ -76,6 +76,7 @@ module.exports = {
         camelcase: 'off',
         'no-async-promise-executor': 'off',
         'no-await-in-loop': 'off',
+        'import/no-dynamic-require': 'off',
         // 设置单行最大长度
         'prettier/prettier': [
             'error',

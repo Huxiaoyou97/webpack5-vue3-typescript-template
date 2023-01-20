@@ -9,7 +9,7 @@ import { HRouter } from '@/core/types';
 // 模块列表
 const modules: any[] = [...all.modules];
 
-function removeEmpty(arr: any) {
+export function removeEmpty(arr: any) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] == '' || typeof arr[i] == 'undefined') {
             arr.splice(i, 1);
@@ -78,6 +78,7 @@ async function useModule(app: App) {
                         e.meta = {};
                     }
                     if (e && e.path) {
+                        console.log(e, '-------e');
                         (router as HRouter).$plugin?.addViews([e]);
                     } else {
                         console.error(`[${name}-views]：缺少 path 参数`);
@@ -99,7 +100,6 @@ async function useModule(app: App) {
         const value: any = f(i).default;
         const [, name, fn, cname, fname, fname2, fname3, fname4] = i.split('/');
 
-        console.log(value, '---------value');
         if (fn === 'pages' || fn === 'views') {
             let path: any = null;
             if (value.app) {
@@ -216,7 +216,6 @@ async function useModule(app: App) {
         const [, name, fn, cname] = i.split('/');
         const value: any = files2[i].default;
         const fname: string = (cname || '').split('.')[0];
-        console.log(name, '-----name');
 
         function next(d: any) {
             // 配置参数入口

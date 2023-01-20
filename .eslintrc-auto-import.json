@@ -81,6 +81,7 @@
     "refDefault": true,
     "refThrottled": true,
     "refWithControl": true,
+    "removeEmpty": true,
     "resolveComponent": true,
     "resolveDirective": true,
     "resolveRef": true,
